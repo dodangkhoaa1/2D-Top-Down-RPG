@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111514261824498385, guid: f9d64048e2c402642b841cda4cf03db7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3985,7 +3985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111514261824498385, guid: f9d64048e2c402642b841cda4cf03db7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4072,7 +4072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653411810900367757, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7999935
+      value: 1.7999972
       objectReference: {fileID: 0}
     - target: {fileID: 7615386987948988819, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_Follow
@@ -11426,6 +11426,7 @@ GameObject:
   - component: {fileID: 1237102923}
   - component: {fileID: 1237102922}
   - component: {fileID: 1237102921}
+  - component: {fileID: 1237102925}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -15023,6 +15024,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1237102925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237102919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f287e3d57deec448ea38da8ad71ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxOffset: -0.15
 --- !u!4 &1361601408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7224908782240082923, guid: 95958bd81f050644ba5c914b1b8e3bd4, type: 3}
@@ -15511,7 +15525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111514261824498385, guid: f9d64048e2c402642b841cda4cf03db7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15974,7 +15988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111514261824498385, guid: f9d64048e2c402642b841cda4cf03db7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
