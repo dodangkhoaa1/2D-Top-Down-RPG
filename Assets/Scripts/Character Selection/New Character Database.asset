@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f395ad8e8538c43a590fd7d1158860, type: 3}
+  m_Name: New Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characterName: Human
+    sprite: {fileID: -1323170437, guid: ee8ea90090b15c640bc8bbeba3d22929, type: 3}
+    Prefab: {fileID: 2372166742275331177, guid: ab67bc936fbee8542bb4d94318e4d093, type: 3}
+  - characterName: Ghost
+    sprite: {fileID: -1186275580, guid: 4f7a9b35c2dd1ae44b2a1843f4550330, type: 3}
+    Prefab: {fileID: 7834142831734029747, guid: f7341ce3e1098794cb700ecaec126645, type: 3}
