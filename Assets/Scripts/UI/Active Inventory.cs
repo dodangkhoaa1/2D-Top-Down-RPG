@@ -29,9 +29,9 @@ public class ActiveInventory : Singleton<ActiveInventory>
         playerControls.Enable();
     }
 
-    public void EquipStartingWeapon()
+    public void EquipStartingWeapon(int index)
     {
-        ToggleActiveHighlight(0);
+        ToggleActiveHighlight(index);
     }
 
     private void ToggleActiveHighlight(int indexNumber)

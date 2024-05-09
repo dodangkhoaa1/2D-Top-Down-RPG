@@ -238,6 +238,7 @@ MonoBehaviour:
   dashSpeed: 4
   myTrailRenderer: {fileID: 6748311576529687264}
   weaponCollider: {fileID: 1638114370629982758}
+  indexSlot: 1
 --- !u!114 &9178156550406425529
 MonoBehaviour:
   m_ObjectHideFlags: 0

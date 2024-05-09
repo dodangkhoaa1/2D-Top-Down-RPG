@@ -12,6 +12,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float dashSpeed = 4f; //dash speed of player
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
+    [SerializeField] private int indexSlot;
 
     private PlayerControls playerControls; 
     private Vector2 movement;
@@ -43,7 +44,7 @@ public class PlayerController : Singleton<PlayerController>
 
         startingMoveSpeed = moveSpeed; //store original move speed
 
-        ActiveInventory.Instance.EquipStartingWeapon();
+        ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt("characterOption"));
     }
 
     private void OnEnable()

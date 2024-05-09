@@ -8,4 +8,5 @@ public class Character
     public string characterName;
     public Sprite sprite;
     public GameObject Prefab;
+    public string Description;
 }
