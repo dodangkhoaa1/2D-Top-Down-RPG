@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     private void Start()
     {
         int characterOption = PlayerPrefs.GetInt("characterOption");
-        Instantiate(prefabs[characterOption]);
+        if (characterOption != null)
+        {
+            Instantiate(prefabs[characterOption]);
+        }
+        Destroy(gameObject);
     }
 }

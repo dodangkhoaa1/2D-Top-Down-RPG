@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CharacterDatabase : ScriptableObject
+public class CharacterDatabase : ScriptableObject 
 {
     public Character[] character;
 

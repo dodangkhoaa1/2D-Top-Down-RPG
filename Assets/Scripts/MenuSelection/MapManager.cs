@@ -7,22 +7,24 @@ using UnityEngine.UI;
 
 public class MapManager : MonoBehaviour
 {
-    public MapDatabase mapDatabase;
-     public CharacterDatabase characterDatabase;
-    public CharacterManager characterManager;
-    public Text nameScene;
-    public Text descriptionText;
-    public SpriteRenderer mapSprite;
-    public Button buyMapBtn;
+    private const string SELECTION_MAP_OPTION = "mapOption";
+    [SerializeField] private MapDatabase mapDatabase;
+    [SerializeField] private CharacterDatabase characterDatabase;
+    [SerializeField] private CharacterManager characterManager;
+    [SerializeField] private Text nameScene;
+    [SerializeField] private Text descriptionText;
+    [SerializeField] private SpriteRenderer mapSprite;
+    [SerializeField] private Button buyMapBtn;
 
     private EconomyManager economyManager;
-    public int mapOption = 0;
+    private int mapOption;
     void Start()
 
     {
+        EconomyManager.Instance.LoadPlayerGold(); //Tải tiền từ database 
         economyManager = EconomyManager.Instance;
         LoadMapOption();
-        UpdateCharacter(mapOption);
+        UpdateMap(mapOption);
         UpdateUIMap(); // Cập nhật giao diện người dùng khi bắt đầu
     }
 
@@ -35,7 +37,7 @@ public class MapManager : MonoBehaviour
             mapOption = 0;
         }
 
-        UpdateCharacter(mapOption);
+        UpdateMap(mapOption);
         UpdateUIMap();
     }
 
@@ -48,52 +50,61 @@ public class MapManager : MonoBehaviour
             mapOption = mapDatabase.mapCount - 1;
         }
 
-        UpdateCharacter(mapOption);
+        UpdateMap(mapOption);
         UpdateUIMap();
     }
 
-    private void UpdateCharacter(int selectedOption)
+    private void UpdateMap(int selectedOption)
     {
         Map map = mapDatabase.GetMap(selectedOption);
         mapSprite.sprite = map.mapSprite;
         nameScene.text = map.mapName;
         descriptionText.text = map.mapDescription;
+        SaveMapOption();
     }
-
+    /// <summary>
+    /// get previous map option, if not return 0 
+    /// </summary>
     private void LoadMapOption()
     {
-        mapOption = PlayerPrefs.GetInt("mapOption", 0);
+        mapOption = PlayerPrefs.GetInt(SELECTION_MAP_OPTION, 0);
     }
 
+    /// <summary>
+    /// Lưu option map giữa các scene 
+    /// </summary>
     private void SaveMapOption()
     {
-        PlayerPrefs.SetInt("mapOption", mapOption);
+        PlayerPrefs.SetInt(SELECTION_MAP_OPTION, mapOption);
         PlayerPrefs.Save();
     }
     public void UnlockMap()
     {
         if (economyManager != null)
         {
-            if (economyManager != null)
+            Map map = mapDatabase.GetMap(mapOption);
+            if (!map.isUnlocked)
             {
-                Map map = mapDatabase.GetMap(mapOption);
-                if (!map.isUnlocked && economyManager.currentGold >= map.price)
+                if (economyManager.currentGold >= map.price)
                 {
                     economyManager.DeductGold(map.price);
                     map.Unlock(); // Mở khóa nhân vật
-                    SaveMapOption();
                     mapDatabase.UpdateMapUnlockedStatus(mapOption, true); // Cập nhật trạng thái mở khóa trong CharacterDatabase
-                    UpdateUIMap(); // Cập nhật giao diện người dùng khi mở khóa nhân vật
+                    UpdateUIMap(); // Cập nhật giao diện người dùng khi mở khóa nhân vật }
                 }
                 else
                 {
-                    Debug.Log("Cannot buy map: not enough gold or map already unlocked.");
+                    Debug.Log("Cannot buy map: not enough gold.");
                 }
             }
             else
             {
-                Debug.LogError("EconomyManager is not assigned!");
+                Debug.Log("Cannot buy map: map already unlocked.");
             }
+        }
+        else
+        {
+            Debug.LogError("EconomyManager is not assigned!");
         }
     }
     private void UpdateUIMap()
@@ -105,7 +116,6 @@ public class MapManager : MonoBehaviour
             if (map.isUnlocked)
             {
                 buyMapBtn.gameObject.SetActive(false);
-
             }
             else
             {
@@ -128,7 +138,7 @@ public class MapManager : MonoBehaviour
     }
     public void ChangeScene()
     {
-        Character character = characterDatabase.GetCharacter(characterManager.characterOption);
+        Character character = characterDatabase.GetCharacter(PlayerPrefs.GetInt("characterOption"));
         if (character != null && character.isUnlocked)
         {
             if (!string.IsNullOrEmpty(nameScene.text))

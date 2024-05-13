@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private float roamChangeDirectionFloat = 2f;
+    [SerializeField] private float roamChangeDirectionFloat = 2f; //time to change move's direction
     [SerializeField] private float attackRange = 0f;
     [SerializeField] private MonoBehaviour enemyType;
     [SerializeField] private float attackCooldown = 2f;
@@ -58,14 +58,16 @@ public class EnemyAI : MonoBehaviour
     {
         timeRoaming += Time.deltaTime;
 
-        enemyPathfinding.MoveTo(roamPosition);
+        enemyPathfinding.MoveTo(roamPosition); //move to random position Vector2(random(-1,1), random(-1;1))
 
         if(Vector2.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange)
+            //if distance from enemy to player less than attacking's range, then enemy switch to attack
         {
             state = State.Attacking;
         }
 
         if(timeRoaming > roamChangeDirectionFloat)
+            //change direction when time roaming more than time to change direction
         {
             roamPosition = GetRoamingPosition();
         }
@@ -74,11 +76,13 @@ public class EnemyAI : MonoBehaviour
     private void Attacking()
     {
         if(Vector2.Distance(transform.position, PlayerController.Instance.transform.position) > attackRange)
+            //if distance from enemy to player more than attacking range, then roaming
         {
             state = State.Roaming;
         }
 
         if(attackRange != 0 && canAttack)
+            //when have ability to attack
         {
             canAttack = false;
             (enemyType as IEnemy).Attack();
@@ -92,10 +96,14 @@ public class EnemyAI : MonoBehaviour
                 enemyPathfinding.MoveTo(roamPosition);
             }
 
-            StartCoroutine(AttackCooldownRoutine());
+            StartCoroutine(AttackCooldownRoutine()); //delay for the next attack
         }
     }
 
+    /// <summary>
+    /// wait attackCooldown to continue attacking
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator AttackCooldownRoutine()
     {
         yield return new WaitForSeconds(attackCooldown);
@@ -109,6 +117,6 @@ public class EnemyAI : MonoBehaviour
     private Vector2 GetRoamingPosition()
     {
         timeRoaming = 0f;
-        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized; //random Vector to move of enemy
     }
 }

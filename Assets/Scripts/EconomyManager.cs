@@ -32,9 +32,11 @@ public class EconomyManager : Singleton<EconomyManager>
     {
         currentGold += amount;
         SavePlayerGold(); // Lưu số lượng coin sau mỗi lần thay đổi
-        UpdateGoldText();
+        UpdateGoldText();  
     }
-
+    /// <summary>
+    /// Cập nhật tiền hiển thị trên UI
+    /// </summary>
     private void UpdateGoldText()
     {
         if (goldText != null)
@@ -42,21 +44,29 @@ public class EconomyManager : Singleton<EconomyManager>
             goldText.text = currentGold.ToString("D3");
         }
     }
-
+    /// <summary>
+    /// Lưu tiền vào biến toàn cục
+    /// </summary>
     private void SavePlayerGold()
     {
         PlayerPrefs.SetInt(PLAYER_GOLD_KEY, currentGold);
         PlayerPrefs.Save(); // Lưu dữ liệu vào PlayerPrefs
     }
 
-    private void LoadPlayerGold()
+    /// <summary>
+    /// Load tiền từ biến toàn cục 
+    /// </summary>
+    public void LoadPlayerGold()
     {
         if (PlayerPrefs.HasKey(PLAYER_GOLD_KEY))
         {
             currentGold = PlayerPrefs.GetInt(PLAYER_GOLD_KEY);
         }
     }
-
+    /// <summary>
+    /// Sử dụng tiền 
+    /// </summary>
+    /// <param name="amount"></param>
     public void DeductGold(int amount)
     {
         currentGold -= amount;
