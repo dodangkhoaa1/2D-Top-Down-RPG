@@ -1,24 +1,66 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class EconomyManager : Singleton<EconomyManager>
 {
-    private TMP_Text goldText;
-    private int currentGold = 0;
+    [SerializeField] private TMP_Text goldText;
+    public int currentGold = 0;
 
-    const string COIN_AMOUNT_TEXT = "Gold Amount Text";
+    private const string PLAYER_GOLD_KEY = "PlayerGold"; // Key để lưu số lượng coin
 
-    public void UpdateCurrentGold()
+    private void Start()
     {
-        currentGold += 1;
-
-        if(goldText == null)
+        LoadPlayerGold(); // Nạp số lượng coin từ PlayerPrefs khi game bắt đầu
+        if (goldText != null)
         {
-            goldText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();
+            UpdateGoldText();
         }
+        else
+        {
+            Debug.LogWarning("Gold Amount Text reference is not set!");
+        }
+    }
 
-        goldText.text = currentGold.ToString("D3");
+    public int GetCurrentGold()
+    {
+        return currentGold;
+    }
+
+    public void UpdateCurrentGold(int amount = 1)
+    {
+        currentGold += amount;
+        SavePlayerGold(); // Lưu số lượng coin sau mỗi lần thay đổi
+        UpdateGoldText();
+    }
+
+    private void UpdateGoldText()
+    {
+        if (goldText != null)
+        {
+            goldText.text = currentGold.ToString("D3");
+        }
+    }
+
+    private void SavePlayerGold()
+    {
+        PlayerPrefs.SetInt(PLAYER_GOLD_KEY, currentGold);
+        PlayerPrefs.Save(); // Lưu dữ liệu vào PlayerPrefs
+    }
+
+    private void LoadPlayerGold()
+    {
+        if (PlayerPrefs.HasKey(PLAYER_GOLD_KEY))
+        {
+            currentGold = PlayerPrefs.GetInt(PLAYER_GOLD_KEY);
+        }
+    }
+
+    public void DeductGold(int amount)
+    {
+        currentGold -= amount;
+        UpdateGoldText();
+        SavePlayerGold();
     }
 }

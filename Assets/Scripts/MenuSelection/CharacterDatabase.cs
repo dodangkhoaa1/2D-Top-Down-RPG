@@ -19,4 +19,11 @@ public class CharacterDatabase : ScriptableObject
     {
         return character[index];
     }
+    public void UpdateCharacterUnlockedStatus(int index, bool unlocked)
+    {
+        if (index >= 0 && index < character.Length)
+        {
+            character[index].isUnlocked = unlocked;
+        }
+    }
 }

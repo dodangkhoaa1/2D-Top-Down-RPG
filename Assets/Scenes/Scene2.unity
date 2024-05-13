@@ -4072,7 +4072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653411810900367757, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7999941
+      value: 1.7999821
       objectReference: {fileID: 0}
     - target: {fileID: 6653411810900367757, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11478,6 +11478,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c78d31eca648c948a43616ce48d9c88, type: 3}
+--- !u!114 &1104715074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2150933660235684670, guid: 5c78d31eca648c948a43616ce48d9c88, type: 3}
+  m_PrefabInstance: {fileID: 1104715073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237102919
 GameObject:
   m_ObjectHideFlags: 0
@@ -15736,6 +15747,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 118065984192419952, guid: d354378444e082645b37ffc962dda7b2, type: 3}
+      propertyPath: goldText
+      value: 
+      objectReference: {fileID: 1104715074}
     - target: {fileID: 1618811517761747441, guid: d354378444e082645b37ffc962dda7b2, type: 3}
       propertyPath: m_Name
       value: Managers

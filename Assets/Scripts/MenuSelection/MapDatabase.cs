@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 [CreateAssetMenu]
 public class MapDatabase : ScriptableObject
@@ -18,5 +19,13 @@ public class MapDatabase : ScriptableObject
     public Map GetMap(int index)
     {
         return maps[index];
+    }
+
+    public void UpdateMapUnlockedStatus(int index, bool unlocked)
+    {
+        if (index >= 0 && index < maps.Length)
+        {
+            maps[index].isUnlocked = unlocked;
+        }
     }
 }

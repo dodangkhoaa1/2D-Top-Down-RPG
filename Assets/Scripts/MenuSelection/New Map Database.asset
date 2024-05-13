@@ -16,6 +16,10 @@ MonoBehaviour:
   - mapName: Scene1
     mapSprite: {fileID: 21300000, guid: a6b5bd73851b45445a30279e1905c3e1, type: 3}
     mapDescription: Easy
+    price: 1
+    isUnlocked: 0
   - mapName: Scene2
     mapSprite: {fileID: 21300000, guid: 3f847106b81ffcd44964c11cdb60852c, type: 3}
     mapDescription: Hard
+    price: 1
+    isUnlocked: 0

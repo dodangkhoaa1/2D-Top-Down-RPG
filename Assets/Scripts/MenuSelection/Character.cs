@@ -9,4 +9,13 @@ public class Character
     public Sprite sprite;
     public GameObject Prefab;
     public string Description;
+    public int price;
+
+
+    public bool isUnlocked;
+
+    public void Unlock()
+    {
+        isUnlocked = true;
+    }
 }
