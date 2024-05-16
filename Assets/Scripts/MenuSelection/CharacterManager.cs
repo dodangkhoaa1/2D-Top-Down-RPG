@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
-    private const string SELECTION_CHARACTER_OPTION = "characterOption";
-
     [SerializeField] private CharacterDatabase characterDatabase;
     [SerializeField] private Text nameText;
     [SerializeField] private Text descriptionText;
@@ -55,11 +53,11 @@ public class CharacterManager : MonoBehaviour
             if (economyManager != null)
             {
                 Character character = characterDatabase.GetCharacter(characterOption);
-                if (!character.isUnlocked && economyManager.currentGold >= character.price)
+                if (!character.IsUnlocked() && economyManager.currentGold >= character.price)
                 {
                     economyManager.DeductGold(character.price);
                     character.Unlock(); // Mở khóa nhân vật
-                    characterDatabase.UpdateCharacterUnlockedStatus(characterOption, true); // Cập nhật trạng thái mở khóa trong CharacterDatabase
+                    characterDatabase.UpdateCharacterUnlockedStatus(characterOption); // Cập nhật trạng thái mở khóa trong CharacterDatabase
                     UpdateUI(); // Cập nhật giao diện người dùng khi mở khóa nhân vật
                 }
                 else
@@ -84,12 +82,12 @@ public class CharacterManager : MonoBehaviour
 
     private void LoadCharacterOption()
     {
-        characterOption = PlayerPrefs.GetInt(SELECTION_CHARACTER_OPTION, 0);
+        characterOption = PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey, 0);
     }
 
     private void SaveCharacterOption()
     {
-        PlayerPrefs.SetInt(SELECTION_CHARACTER_OPTION, characterOption);
+        PlayerPrefs.SetInt(DatabaseKey.CharacterSelectedOptionKey, characterOption);
         PlayerPrefs.Save();
     }
     private void UpdateUI()
@@ -98,7 +96,7 @@ public class CharacterManager : MonoBehaviour
 
         if (character != null)
         {
-            if (character.isUnlocked)
+            if (character.IsUnlocked())
             {
                 buyCharacterButton.gameObject.SetActive(false);
             }

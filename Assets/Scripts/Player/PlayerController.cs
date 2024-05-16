@@ -44,7 +44,7 @@ public class PlayerController : Singleton<PlayerController>
 
         startingMoveSpeed = moveSpeed; //store original move speed
 
-        ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt("characterOption"));
+        ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey));
     }
 
     private void OnEnable()

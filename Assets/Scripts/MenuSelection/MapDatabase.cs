@@ -21,11 +21,11 @@ public class MapDatabase : ScriptableObject
         return maps[index];
     }
 
-    public void UpdateMapUnlockedStatus(int index, bool unlocked)
+    public void UpdateMapUnlockedStatus(int index)
     {
         if (index >= 0 && index < maps.Length)
         {
-            maps[index].isUnlocked = unlocked;
+            maps[index].Unlock();
         }
     }
 }

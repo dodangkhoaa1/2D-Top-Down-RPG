@@ -23,7 +23,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string HEALTH_SLIDER_TEXT = "Health Slider";
 
     //support for death of player
-    const string TOWN_TEXT = "Scene1";
+    const string TOWN_TEXT = "CharacterSelectScene";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake()
@@ -94,6 +94,18 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        //hide ui in game
+        //foreach (Transform child in GameObject.FindWithTag("UICanvas").transform)
+        //{
+        //    child.gameObject.SetActive(false);
+        //}
+        //switch to Menu scene
+
+        GameObject[] games =  GameObject.FindGameObjectsWithTag("UIPlaying");
+        foreach (GameObject game in games)
+        {
+            Destroy(game.gameObject);
+        }
         SceneManager.LoadScene(TOWN_TEXT);
     }
 

@@ -10,12 +10,13 @@ public class Map
     public string mapDescription;
 
     public int price;
-
-
-    public bool isUnlocked;
+    [SerializeField]
+    private bool isUnlocked;
 
     public void Unlock()
     {
         isUnlocked = true;
     }
+
+    public bool IsUnlocked() => isUnlocked;
 }

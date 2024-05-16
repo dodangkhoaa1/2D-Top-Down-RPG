@@ -11,11 +11,13 @@ public class Character
     public string Description;
     public int price;
 
-
-    public bool isUnlocked;
+    [SerializeField]
+    private bool isUnlocked;
 
     public void Unlock()
     {
         isUnlocked = true;
     }
+
+    public bool IsUnlocked() => isUnlocked;
 }

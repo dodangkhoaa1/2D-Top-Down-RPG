@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MapManager : MonoBehaviour
 {
-    private const string SELECTION_MAP_OPTION = "mapOption";
     [SerializeField] private MapDatabase mapDatabase;
     [SerializeField] private CharacterDatabase characterDatabase;
     [SerializeField] private CharacterManager characterManager;
@@ -67,7 +66,7 @@ public class MapManager : MonoBehaviour
     /// </summary>
     private void LoadMapOption()
     {
-        mapOption = PlayerPrefs.GetInt(SELECTION_MAP_OPTION, 0);
+        mapOption = PlayerPrefs.GetInt(DatabaseKey.MapSelectedOptionKey, 0);
     }
 
     /// <summary>
@@ -75,7 +74,7 @@ public class MapManager : MonoBehaviour
     /// </summary>
     private void SaveMapOption()
     {
-        PlayerPrefs.SetInt(SELECTION_MAP_OPTION, mapOption);
+        PlayerPrefs.SetInt(DatabaseKey.MapSelectedOptionKey, mapOption);
         PlayerPrefs.Save();
     }
     public void UnlockMap()
@@ -83,13 +82,14 @@ public class MapManager : MonoBehaviour
         if (economyManager != null)
         {
             Map map = mapDatabase.GetMap(mapOption);
-            if (!map.isUnlocked)
+            if (!map.IsUnlocked())
             {
                 if (economyManager.currentGold >= map.price)
                 {
                     economyManager.DeductGold(map.price);
                     map.Unlock(); // Mở khóa nhân vật
-                    mapDatabase.UpdateMapUnlockedStatus(mapOption, true); // Cập nhật trạng thái mở khóa trong CharacterDatabase
+
+                    mapDatabase.UpdateMapUnlockedStatus(mapOption); // Cập nhật trạng thái mở khóa trong CharacterDatabase
                     UpdateUIMap(); // Cập nhật giao diện người dùng khi mở khóa nhân vật }
                 }
                 else
@@ -113,7 +113,7 @@ public class MapManager : MonoBehaviour
 
         if (map != null)
         {
-            if (map.isUnlocked)
+            if (map.IsUnlocked())
             {
                 buyMapBtn.gameObject.SetActive(false);
             }
@@ -138,21 +138,22 @@ public class MapManager : MonoBehaviour
     }
     public void ChangeScene()
     {
-        Character character = characterDatabase.GetCharacter(PlayerPrefs.GetInt("characterOption"));
-        if (character != null && character.isUnlocked)
+        Character character = characterDatabase.GetCharacter(PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey));
+        Map map = mapDatabase.GetMap(PlayerPrefs.GetInt(DatabaseKey.MapSelectedOptionKey));
+        if (map.IsUnlocked())
         {
-            if (!string.IsNullOrEmpty(nameScene.text))
+            if (character.IsUnlocked())
             {
                 SceneManager.LoadScene(nameScene.text);
             }
             else
             {
-                Debug.Log("Cannot change scene: Scene name is not provided.");
+                Debug.Log("Character is locked. Please unlock character to continue!");
             }
         }
         else
         {
-            Debug.Log("Cannot change scene: Map is not unlocked.");
+            Debug.Log("Map is locked. Please unlock map to continue!");
         }
     }
 }

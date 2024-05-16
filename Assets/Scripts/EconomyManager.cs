@@ -8,8 +8,6 @@ public class EconomyManager : Singleton<EconomyManager>
     [SerializeField] private TMP_Text goldText;
     public int currentGold = 0;
 
-    private const string PLAYER_GOLD_KEY = "PlayerGold"; // Key để lưu số lượng coin
-
     private void Start()
     {
         LoadPlayerGold(); // Nạp số lượng coin từ PlayerPrefs khi game bắt đầu
@@ -49,7 +47,7 @@ public class EconomyManager : Singleton<EconomyManager>
     /// </summary>
     private void SavePlayerGold()
     {
-        PlayerPrefs.SetInt(PLAYER_GOLD_KEY, currentGold);
+        PlayerPrefs.SetInt(DatabaseKey.PlayerGoldKey, currentGold);
         PlayerPrefs.Save(); // Lưu dữ liệu vào PlayerPrefs
     }
 
@@ -58,9 +56,9 @@ public class EconomyManager : Singleton<EconomyManager>
     /// </summary>
     public void LoadPlayerGold()
     {
-        if (PlayerPrefs.HasKey(PLAYER_GOLD_KEY))
+        if (PlayerPrefs.HasKey(DatabaseKey.PlayerGoldKey))
         {
-            currentGold = PlayerPrefs.GetInt(PLAYER_GOLD_KEY);
+            currentGold = PlayerPrefs.GetInt(DatabaseKey.PlayerGoldKey);
         }
     }
     /// <summary>
