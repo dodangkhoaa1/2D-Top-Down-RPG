@@ -18,10 +18,10 @@ MonoBehaviour:
     Prefab: {fileID: 2372166742275331177, guid: ab67bc936fbee8542bb4d94318e4d093, type: 3}
     Description: Character using Sword
     price: 2
-    isUnlocked: 0
+    isUnlocked: 1
   - characterName: Ghost
     sprite: {fileID: -1186275580, guid: 4f7a9b35c2dd1ae44b2a1843f4550330, type: 3}
     Prefab: {fileID: 7834142831734029747, guid: f7341ce3e1098794cb700ecaec126645, type: 3}
     Description: Character using Staff
     price: 2
-    isUnlocked: 1
+    isUnlocked: 0
