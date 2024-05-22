@@ -720,6 +720,10 @@ PrefabInstance:
       value: Camera
       objectReference: {fileID: 0}
     - target: {fileID: 3712171862859658468, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712171862859658468, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -733,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653411810900367757, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7999847
+      value: 1.799985
       objectReference: {fileID: 0}
     - target: {fileID: 7615386987948988819, guid: abb9db994f37d8f4fb77ba8a684ca149, type: 3}
       propertyPath: m_Follow
@@ -2887,7 +2891,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1186275580, guid: 4f7a9b35c2dd1ae44b2a1843f4550330, type: 3}
+  m_Sprite: {fileID: -1986205177, guid: a9fbb3c891eba2143ac05bbb75a1eafd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

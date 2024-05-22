@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-[CreateAssetMenu]
 public class MapDatabase : ScriptableObject
 {
     public Map[] maps;

@@ -53,7 +53,7 @@ public class CharacterManager : MonoBehaviour
             if (economyManager != null)
             {
                 Character character = characterDatabase.GetCharacter(characterOption);
-                if (!character.IsUnlocked() && economyManager.currentGold >= character.price)
+                if (!character.IsUnlocked() && Prefs.IsEnoughCoins(character.price))
                 {
                     economyManager.DeductGold(character.price);
                     character.Unlock(); // Mở khóa nhân vật
@@ -82,13 +82,12 @@ public class CharacterManager : MonoBehaviour
 
     private void LoadCharacterOption()
     {
-        characterOption = PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey, 0);
+        characterOption = Prefs.characterSelectedOption;
     }
 
     private void SaveCharacterOption()
     {
-        PlayerPrefs.SetInt(DatabaseKey.CharacterSelectedOptionKey, characterOption);
-        PlayerPrefs.Save();
+        Prefs.characterSelectedOption = characterOption;
     }
     private void UpdateUI()
     {
@@ -103,7 +102,7 @@ public class CharacterManager : MonoBehaviour
             else
             {
                 buyCharacterButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy-" + character.price;
-                if (economyManager != null && economyManager.currentGold >= character.price)
+                if (economyManager != null && Prefs.IsEnoughCoins(character.price))
                 {
                     buyCharacterButton.interactable = true;
                 }

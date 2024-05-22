@@ -44,7 +44,7 @@ public class PlayerController : Singleton<PlayerController>
 
         startingMoveSpeed = moveSpeed; //store original move speed
 
-        ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey));
+        ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt(PrefConsts.CHARACTER_SELECTED_OPTION_KEY));
     }
 
     private void OnEnable()
@@ -77,8 +77,8 @@ public class PlayerController : Singleton<PlayerController>
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
-        myAnimator.SetFloat("moveX", movement.x);
-        myAnimator.SetFloat("moveY", movement.y);
+        myAnimator.SetFloat(AnimationConsts.PLAYER_RUN_X_PARAM, movement.x);
+        myAnimator.SetFloat(AnimationConsts.PLAYER_RUN_Y_PARAM, movement.y);
     }
     private void Move()
     {

@@ -30,7 +30,7 @@ public class EconomyManager : Singleton<EconomyManager>
     {
         currentGold += amount;
         SavePlayerGold(); // Lưu số lượng coin sau mỗi lần thay đổi
-        UpdateGoldText();  
+        UpdateGoldText();
     }
     /// <summary>
     /// Cập nhật tiền hiển thị trên UI
@@ -47,8 +47,7 @@ public class EconomyManager : Singleton<EconomyManager>
     /// </summary>
     private void SavePlayerGold()
     {
-        PlayerPrefs.SetInt(DatabaseKey.PlayerGoldKey, currentGold);
-        PlayerPrefs.Save(); // Lưu dữ liệu vào PlayerPrefs
+        Prefs.coins = currentGold;
     }
 
     /// <summary>
@@ -56,10 +55,7 @@ public class EconomyManager : Singleton<EconomyManager>
     /// </summary>
     public void LoadPlayerGold()
     {
-        if (PlayerPrefs.HasKey(DatabaseKey.PlayerGoldKey))
-        {
-            currentGold = PlayerPrefs.GetInt(DatabaseKey.PlayerGoldKey);
-        }
+        currentGold = Prefs.coins;
     }
     /// <summary>
     /// Sử dụng tiền 

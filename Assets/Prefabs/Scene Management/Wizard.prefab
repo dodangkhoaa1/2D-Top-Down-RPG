@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 2098372521910035102}
   - component: {fileID: 3647736636567455794}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1172072781, guid: 4f7a9b35c2dd1ae44b2a1843f4550330, type: 3}
+  m_Sprite: {fileID: 453625085, guid: a9fbb3c891eba2143ac05bbb75a1eafd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -398,8 +398,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.050890584, y: -0.09774114}
-  m_Size: {x: 0.65468204, y: 0.5666911}
+  m_Offset: {x: 0.077407606, y: -0.5128148}
+  m_Size: {x: 0.92894995, y: 0.92894995}
   m_Direction: 1
 --- !u!95 &8733396082043033198
 Animator:
@@ -409,9 +409,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7834142831734029747}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 254249a81092d45498b0638cc710c003, type: 2}
+  m_Controller: {fileID: 9100000, guid: d70ae9168a061cd40a17bd1558155743, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

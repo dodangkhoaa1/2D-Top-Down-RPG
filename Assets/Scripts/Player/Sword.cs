@@ -38,7 +38,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        myAnimator.SetTrigger("Attack");
+        myAnimator.SetTrigger(AnimationConsts.WEAPON_SWORD_ATTACK_PARAM);
         weaponCollider.gameObject.SetActive(true);
 
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity); //create slash at sword

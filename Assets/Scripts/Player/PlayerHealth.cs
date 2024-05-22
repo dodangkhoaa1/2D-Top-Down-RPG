@@ -24,7 +24,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     //support for death of player
     const string TOWN_TEXT = "CharacterSelectScene";
-    readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake()
     {
@@ -85,7 +84,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             Destroy(ActiveWeapon.Instance.gameObject);
 
             currentHealth = 0;
-            GetComponent<Animator>().SetTrigger(DEATH_HASH);
+            GetComponent<Animator>().SetTrigger(AnimationConsts.PLAYER_DEATH_PARAM);
             StartCoroutine(DeathLoadSceneRoutine());
         }
     }
@@ -101,7 +100,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         //}
         //switch to Menu scene
 
-        GameObject[] games =  GameObject.FindGameObjectsWithTag("UIPlaying");
+        GameObject[] games =  GameObject.FindGameObjectsWithTag(TagConsts.UIPLAYING_TAG);
         foreach (GameObject game in games)
         {
             Destroy(game.gameObject);

@@ -66,7 +66,7 @@ public class MapManager : MonoBehaviour
     /// </summary>
     private void LoadMapOption()
     {
-        mapOption = PlayerPrefs.GetInt(DatabaseKey.MapSelectedOptionKey, 0);
+        mapOption = Prefs.mapSeletedOption;
     }
 
     /// <summary>
@@ -74,8 +74,7 @@ public class MapManager : MonoBehaviour
     /// </summary>
     private void SaveMapOption()
     {
-        PlayerPrefs.SetInt(DatabaseKey.MapSelectedOptionKey, mapOption);
-        PlayerPrefs.Save();
+        Prefs.mapSeletedOption = mapOption;
     }
     public void UnlockMap()
     {
@@ -84,7 +83,7 @@ public class MapManager : MonoBehaviour
             Map map = mapDatabase.GetMap(mapOption);
             if (!map.IsUnlocked())
             {
-                if (economyManager.currentGold >= map.price)
+                if (Prefs.IsEnoughCoins(map.price) )
                 {
                     economyManager.DeductGold(map.price);
                     map.Unlock(); // Mở khóa nhân vật
@@ -120,7 +119,7 @@ public class MapManager : MonoBehaviour
             else
             {
                 buyMapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Buy-" + map.price;
-                if (economyManager != null && economyManager.currentGold >= map.price)
+                if (economyManager != null && Prefs.IsEnoughCoins(map.price))
                 {
                     buyMapBtn.interactable = true;
                 }
@@ -138,8 +137,8 @@ public class MapManager : MonoBehaviour
     }
     public void ChangeScene()
     {
-        Character character = characterDatabase.GetCharacter(PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey));
-        Map map = mapDatabase.GetMap(PlayerPrefs.GetInt(DatabaseKey.MapSelectedOptionKey));
+        Character character = characterDatabase.GetCharacter(Prefs.characterSelectedOption);
+        Map map = mapDatabase.GetMap(Prefs.mapSeletedOption);
         if (map.IsUnlocked())
         {
             if (character.IsUnlocked())

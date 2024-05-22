@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject[] prefabs;
     private void Start()
     {
-        int characterOption = PlayerPrefs.GetInt(DatabaseKey.CharacterSelectedOptionKey);
+        int characterOption = Prefs.characterSelectedOption;
         Instantiate(prefabs[characterOption]);
         Destroy(gameObject);
         Debug.Log(DatabaseKey.UnlockCharacter);
