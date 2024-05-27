@@ -62,6 +62,7 @@ public class CharacterManager : MonoBehaviour
                 }
                 else
                 {
+                    
                     Debug.Log("Cannot buy character: not enough gold or character already unlocked.");
                 }
             }

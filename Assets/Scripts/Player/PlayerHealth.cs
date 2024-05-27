@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +23,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string HEALTH_SLIDER_TEXT = "Health Slider";
 
     //support for death of player
-    const string TOWN_TEXT = "CharacterSelectScene";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake()
@@ -40,6 +39,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         currentHealth = maxHealth;
 
         UpdateHeartSlider();
+     
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -81,34 +81,35 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (currentHealth <= 0 && !isDead)
         {
-            isDead =true;
+            isDead = true;
             Destroy(ActiveWeapon.Instance.gameObject);
 
             currentHealth = 0;
             GetComponent<Animator>().SetTrigger(DEATH_HASH);
-            StartCoroutine(DeathLoadSceneRoutine());
+            StartCoroutine(ShowGameOverDialogRoutine());
         }
     }
 
-    private IEnumerator DeathLoadSceneRoutine()
+    private IEnumerator ShowGameOverDialogRoutine()
     {
         yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
-        //hide ui in game
-        //foreach (Transform child in GameObject.FindWithTag("UICanvas").transform)
-        //{
-        //    child.gameObject.SetActive(false);
-        //}
-        //switch to Menu scene
+        GUIManager.Instance.ShowGameoverDialog();
+    }
 
-        GameObject[] games =  GameObject.FindGameObjectsWithTag("UIPlaying");
+    public void HideGameUI()
+    {
+        Destroy(gameObject);
+        GameObject[] games = GameObject.FindGameObjectsWithTag("UIPlaying");
         foreach (GameObject game in games)
         {
             Destroy(game.gameObject);
         }
-        SceneManager.LoadScene(TOWN_TEXT);
     }
-
+   public void StartRespawn()
+    {
+        HideGameUI();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     private IEnumerator DamageRecoveryRoutine()
     {
         yield return new WaitForSeconds(damageRecoveryTime);
