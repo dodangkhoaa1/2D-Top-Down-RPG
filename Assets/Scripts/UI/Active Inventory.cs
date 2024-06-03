@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Can don't use
+/// </summary>
 public class ActiveInventory : Singleton<ActiveInventory>
 {
     private int activeSlotIndexNumber = 0;

@@ -254,6 +254,7 @@ MonoBehaviour:
   maxHealth: 3
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
+  playerStats: {fileID: 0}
 --- !u!114 &8204462283645054588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9596c2ec50088da41950a0aa2f2873b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 2241178606470906072, guid: 8a65f5a18ca4cea4abe9395e2c5cc0bc, type: 3}
 --- !u!114 &8685489411178624031
 MonoBehaviour:
   m_ObjectHideFlags: 0

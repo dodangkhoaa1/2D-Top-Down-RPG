@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DamageSource : MonoBehaviour
 {
-    private int damageAmount;
+    private float damageAmount;
 
     private void Start()
     {
         MonoBehaviour currentActiveWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
-        damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
+        //damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
+        damageAmount = PlayerController.Instance.playerStats.damage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

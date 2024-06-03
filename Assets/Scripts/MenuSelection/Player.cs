@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         int characterOption = Prefs.characterSelectedOption;
-        Instantiate(prefabs[characterOption]);
+        Instantiate(prefabs[characterOption], transform.position, Quaternion.identity);
         Destroy(gameObject);
         Debug.Log(DatabaseKey.UnlockCharacter);
     }

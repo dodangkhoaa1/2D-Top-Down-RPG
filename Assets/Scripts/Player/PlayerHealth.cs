@@ -15,7 +15,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     //support for health sliders
     private Slider healthSlider;
 
-    private int currentHealth;
+    private float currentHealth;
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
@@ -36,7 +36,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private void Start()
     {
         isDead = false;
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
+        currentHealth = PlayerController.Instance.playerStats.healthPoint;
 
         UpdateHeartSlider();
     }
@@ -65,7 +66,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (!canTakeDamage) { return; }
 
         ScreenShakeManager.Instance.ShakeScreen();
-        knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
+        //knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
+        knockback.GetKnockedBack(hitTransform, PlayerController.Instance.playerStats.knockbackForce);
         StartCoroutine(flash.FlashRoutine());
 
         canTakeDamage = false;
@@ -110,7 +112,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private IEnumerator DamageRecoveryRoutine()
     {
-        yield return new WaitForSeconds(damageRecoveryTime);
+        //yield return new WaitForSeconds(damageRecoveryTime);
+        yield return new WaitForSeconds(PlayerController.Instance.playerStats.invincibleTime);
         canTakeDamage = true;
     }
 

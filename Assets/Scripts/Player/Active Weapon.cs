@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
+    public GameObject weaponPrefab; //prefab to spawn with character
     public MonoBehaviour CurrentActiveWeapon { get; private set; }
 
     private PlayerControls playerControls;

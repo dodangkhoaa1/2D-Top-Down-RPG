@@ -13,6 +13,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
     [SerializeField] private int indexSlot;
+    [SerializeField] public PlayerStats playerStats;
 
     private PlayerControls playerControls; 
     private Vector2 movement;
@@ -42,9 +43,14 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerControls.Combat.Dash.performed += _ => Dash(); //when click "Space" perform Dash()
 
-        startingMoveSpeed = moveSpeed; //store original move speed
+        //startingMoveSpeed = moveSpeed; //store original move speed
+        startingMoveSpeed = playerStats.moveSpeed; //store original move speed
 
-        ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt(PrefConsts.CHARACTER_SELECTED_OPTION_KEY));
+        //ActiveInventory.Instance.EquipStartingWeapon(PlayerPrefs.GetInt(PrefConsts.CHARACTER_SELECTED_OPTION_KEY));
+        ActiveWeapon activeWeapon = ActiveWeapon.Instance;
+        GameObject newWeapon = Instantiate(activeWeapon.weaponPrefab, activeWeapon.transform);
+        activeWeapon.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+
     }
 
     private void OnEnable()

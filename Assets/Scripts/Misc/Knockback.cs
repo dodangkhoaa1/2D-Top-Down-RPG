@@ -25,7 +25,8 @@ public class Knockback : MonoBehaviour
 
     private IEnumerator KnockRoutine()
     {
-        yield return new WaitForSeconds(knockBackTime);
+        //yield return new WaitForSeconds(knockBackTime);
+        yield return new WaitForSeconds(PlayerController.Instance.playerStats.knockbackTime);
         rb.velocity = Vector2.zero;
         GettingKnockedBack = false;
     }
