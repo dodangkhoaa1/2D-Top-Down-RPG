@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4476319321201095202}
   m_Layer: 5
   m_Name: Heart Container
-  m_TagString: Untagged
+  m_TagString: UIPlaying
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,10 +386,10 @@ RectTransform:
   - {fileID: 6891577962073439084}
   m_Father: {fileID: 7433903285177366982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -60}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6647582195698252489
 CanvasRenderer:
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: 016150c9b1dcc5649926a4cd7f37d309, type: 2}
+  playerStats: {fileID: 0}
 --- !u!1 &4323147814533266096
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,10 +478,10 @@ RectTransform:
   - {fileID: 52422044154060494}
   m_Father: {fileID: 7433903285177366982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 480, y: -60}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5127449676918565247
 CanvasRenderer:
@@ -533,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 0}
+  playerStats: {fileID: 0}
 --- !u!1 &4441693810901940218
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +550,7 @@ GameObject:
   - component: {fileID: 6841556278137582184}
   m_Layer: 5
   m_Name: UICanvas
-  m_TagString: Untagged
+  m_TagString: UIPlaying
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,7 +588,7 @@ Canvas:
   m_GameObject: {fileID: 4441693810901940218}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -597,7 +599,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1960384677
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4155094717746578485
@@ -689,10 +691,10 @@ RectTransform:
   - {fileID: 3617265563292025385}
   m_Father: {fileID: 7433903285177366982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 620, y: -60}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1041270874134803745
 CanvasRenderer:
@@ -745,6 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 0}
+  playerStats: {fileID: 0}
 --- !u!1 &4547898083359474064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,10 +1344,10 @@ RectTransform:
   - {fileID: 18168729006560961}
   m_Father: {fileID: 7433903285177366982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 60, y: -60}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3566934589493694181
 CanvasRenderer:
@@ -1397,6 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: 97a6b10447b60544fb4ffcb0bf3d34d9, type: 2}
+  playerStats: {fileID: 0}
 --- !u!1 &5862657980746033498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1751,7 @@ GameObject:
   - component: {fileID: 2071357020219583326}
   m_Layer: 5
   m_Name: Fade Transition
-  m_TagString: Untagged
+  m_TagString: UIPlaying
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1844,10 +1848,10 @@ RectTransform:
   - {fileID: 6743706595371500277}
   m_Father: {fileID: 7433903285177366982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 340, y: -60}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6183409049534198108
 CanvasRenderer:
@@ -1900,6 +1904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: 8e170bdda0798864bbbaadd7139e1eae, type: 2}
+  playerStats: {fileID: 0}
 --- !u!1 &7381386391773229786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,7 +2067,7 @@ GameObject:
   - component: {fileID: 6421659088115615761}
   m_Layer: 5
   m_Name: Stamina Container
-  m_TagString: Untagged
+  m_TagString: UIPlaying
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2335,11 +2340,11 @@ GameObject:
   - component: {fileID: 6046045709958154297}
   m_Layer: 5
   m_Name: Active Inventory
-  m_TagString: Untagged
+  m_TagString: UIPlaying
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7433903285177366982
 RectTransform:
   m_ObjectHideFlags: 0

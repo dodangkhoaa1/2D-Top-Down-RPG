@@ -23,7 +23,6 @@ public class GrapeProjectile : MonoBehaviour
         StartCoroutine(MoveGrapeShadowRoutine(grapeShadow, grapeShadowStartPosition, playerPos));
     }
 
-
     private IEnumerator ProjectileCurveRoutine(Vector3 startPosition, Vector3 endPosition)
     {
         float timePassed = 0f;

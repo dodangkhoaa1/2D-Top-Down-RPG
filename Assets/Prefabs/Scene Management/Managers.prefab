@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 7920116260250336251}
   m_Layer: 0
   m_Name: Managers
-  m_TagString: Untagged
+  m_TagString: UIPlaying
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,3 +278,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4d12a1ca2d2f447a0d0bee0c0521e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldText: {fileID: 0}
+  currentGold: 0

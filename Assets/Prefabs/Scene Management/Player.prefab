@@ -239,6 +239,7 @@ MonoBehaviour:
   myTrailRenderer: {fileID: 6748311576529687264}
   weaponCollider: {fileID: 1638114370629982758}
   indexSlot: 1
+  playerStats: {fileID: 11400000, guid: da2227e877d20444188cdbb260829b91, type: 2}
 --- !u!114 &9178156550406425529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,9 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  knockBackThrustAmount: 10
-  damageRecoveryTime: 1
-  playerStats: {fileID: 0}
+  knockBackThrustAmount: 100
+  damageRecoveryTime: 10
 --- !u!114 &8204462283645054588
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,9 +10,10 @@ public class MapManager : MonoBehaviour
     [SerializeField] private MapDatabase mapDatabase;
     [SerializeField] private CharacterDatabase characterDatabase;
     [SerializeField] private CharacterManager characterManager;
-    [SerializeField] private Text nameScene;
-    [SerializeField] private Text descriptionText;
-    [SerializeField] private SpriteRenderer mapSprite;
+    [SerializeField] private TextMeshProUGUI nameScene;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+    //[SerializeField] private SpriteRenderer mapSprite;
+    [SerializeField] private Image mapSprite;
     [SerializeField] private Button buyMapBtn;
 
     private EconomyManager economyManager;
@@ -118,7 +119,7 @@ public class MapManager : MonoBehaviour
             }
             else
             {
-                buyMapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Buy-" + map.price;
+                buyMapBtn.GetComponentInChildren<TextMeshProUGUI>().text = "-$" + map.price;
                 if (economyManager != null && Prefs.IsEnoughCoins(map.price))
                 {
                     buyMapBtn.interactable = true;
@@ -137,6 +138,7 @@ public class MapManager : MonoBehaviour
     }
     public void ChangeScene()
     {
+
         Character character = characterDatabase.GetCharacter(Prefs.characterSelectedOption);
         Map map = mapDatabase.GetMap(Prefs.mapSeletedOption);
         if (map.IsUnlocked())
@@ -154,5 +156,10 @@ public class MapManager : MonoBehaviour
         {
             Debug.Log("Map is locked. Please unlock map to continue!");
         }
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

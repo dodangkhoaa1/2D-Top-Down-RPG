@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: New Character Database
   m_EditorClassIdentifier: 
   character:
-  - characterName: Human
-    sprite: {fileID: -1323170437, guid: ee8ea90090b15c640bc8bbeba3d22929, type: 3}
-    Prefab: {fileID: 2372166742275331177, guid: ab67bc936fbee8542bb4d94318e4d093, type: 3}
-    Description: Character using Sword
-    price: 2
-    isUnlocked: 1
   - characterName: Wizard
-    sprite: {fileID: -1986205177, guid: a9fbb3c891eba2143ac05bbb75a1eafd, type: 3}
+    sprite: {fileID: 1127986500, guid: 968b81f3409d81349930eaf91b6b0383, type: 3}
     Prefab: {fileID: 7834142831734029747, guid: f7341ce3e1098794cb700ecaec126645, type: 3}
     Description: Character using Staff
+    price: 2
+    isUnlocked: 0
+  - characterName: Knight
+    sprite: {fileID: 21300000, guid: 3cf3593765bfa3341a123bc9eb03abb5, type: 3}
+    Prefab: {fileID: 2372166742275331177, guid: 95226b972518ba54b89b17d4e165c3fe, type: 3}
+    Description: Character using Sword
     price: 2
     isUnlocked: 1

@@ -6,9 +6,54 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Scene1.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: cc275019e94265a46af0f87b12685361
   - enabled: 1
-    path: Assets/Scenes/Scene2.unity
-    guid: 289e9a63947494f4cb0302779c424db5
+    path: Assets/Scenes/SelectionMenu.unity
+    guid: 5c7e0296f97ea094c8e91610610cb0f0
+  - enabled: 1
+    path: Assets/Scenes/Map/Desert 1.unity
+    guid: 7f18fd4ebb42ed54e9a17205b6bb32f1
+  - enabled: 1
+    path: Assets/Scenes/Map/Desert 2.unity
+    guid: fa532833348559a43bd5f17ee5a39066
+  - enabled: 1
+    path: Assets/Scenes/Map/Desert 3.unity
+    guid: 8bfbb39dd1b686f4794258d391cb554f
+  - enabled: 1
+    path: Assets/Scenes/Map/Hotel 1.unity
+    guid: 5b82a604eb903e944bc8ce2c7364f9b4
+  - enabled: 1
+    path: Assets/Scenes/Map/Hotel 2.unity
+    guid: 792f90206a7d2744cb9e565ea6d28e04
+  - enabled: 1
+    path: Assets/Scenes/Map/Hotel 3.unity
+    guid: 826a11c84de14424899a5c00971e8d38
+  - enabled: 1
+    path: Assets/Scenes/Map/Island 1.unity
+    guid: 5d7eb954e370a9e4792ce768c9229243
+  - enabled: 1
+    path: Assets/Scenes/Map/Island 2.unity
+    guid: ca463a6f0ad1ae146b752bf64334e9be
+  - enabled: 1
+    path: Assets/Scenes/Map/Island 3.unity
+    guid: 83b9204ff10eb1b4799e5e25099ce4bd
+  - enabled: 1
+    path: Assets/Scenes/Map/Temple 1.unity
+    guid: f06337fbebd3c0048a4bf1ba8541cdac
+  - enabled: 1
+    path: Assets/Scenes/Map/Temple 2.unity
+    guid: 5780a7703e1e4b141a494f940a4dfa25
+  - enabled: 1
+    path: Assets/Scenes/Map/Temple 3.unity
+    guid: c74f0bee8f59f04409b30e9b5147175c
+  - enabled: 1
+    path: Assets/Scenes/Map/Winter 1.unity
+    guid: b51ab81f2a76e9b4fad79abbd7b05f96
+  - enabled: 1
+    path: Assets/Scenes/Map/Winter 2.unity
+    guid: ce846d05c477336449d7a7042d22a2d0
+  - enabled: 1
+    path: Assets/Scenes/Map/Winter 3.unity
+    guid: f946a2b294b4e954b9176b8df9438527
   m_configObjects: {}

@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private CharacterDatabase characterDatabase;
-    [SerializeField] private Text nameText;
-    [SerializeField] private Text descriptionText;
-    [SerializeField] private SpriteRenderer artWorkSprite;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+    //[SerializeField] private SpriteRenderer artWorkSprite;
+    [SerializeField] private Image artWorkSprite;
     [SerializeField] private Button buyCharacterButton;
 
     private int characterOption;
@@ -21,7 +22,6 @@ public class CharacterManager : MonoBehaviour
         LoadCharacterOption();
         UpdateCharacter(characterOption);
         UpdateUI(); // Cập nhật giao diện người dùng khi bắt đầu
-        Debug.Log(characterOption);
     }
 
     public void NextOption()
@@ -101,7 +101,7 @@ public class CharacterManager : MonoBehaviour
             }
             else
             {
-                buyCharacterButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy-" + character.price;
+                buyCharacterButton.GetComponentInChildren<TextMeshProUGUI>().text = "-$" + character.price;
                 if (economyManager != null && Prefs.IsEnoughCoins(character.price))
                 {
                     buyCharacterButton.interactable = true;

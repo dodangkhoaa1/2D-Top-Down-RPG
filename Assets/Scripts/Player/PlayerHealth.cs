@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool isDead {  get; private set; }
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private float maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
@@ -23,7 +23,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string HEALTH_SLIDER_TEXT = "Health Slider";
 
     //support for death of player
-    const string TOWN_TEXT = "CharacterSelectScene";
+    //const string TOWN_TEXT = "CharacterSelectScene";
+    const string TOWN_TEXT = "SelectionMenu";
 
     protected override void Awake()
     {
@@ -36,13 +37,14 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private void Start()
     {
         isDead = false;
-        //currentHealth = maxHealth;
-        currentHealth = PlayerController.Instance.playerStats.healthPoint;
-
+        maxHealth = PlayerController.Instance.playerStats.healthPoint;
+        currentHealth = maxHealth;
+        knockBackThrustAmount = PlayerController.Instance.playerStats.knockbackForce;
+        damageRecoveryTime = PlayerController.Instance.playerStats.invincibleTime;
         UpdateHeartSlider();
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
 
@@ -66,8 +68,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (!canTakeDamage) { return; }
 
         ScreenShakeManager.Instance.ShakeScreen();
-        //knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
-        knockback.GetKnockedBack(hitTransform, PlayerController.Instance.playerStats.knockbackForce);
+        knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
 
         canTakeDamage = false;
@@ -95,12 +96,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        //hide ui in game
-        //foreach (Transform child in GameObject.FindWithTag("UICanvas").transform)
-        //{
-        //    child.gameObject.SetActive(false);
-        //}
-        //switch to Menu scene
 
         GameObject[] games =  GameObject.FindGameObjectsWithTag(TagConsts.UIPLAYING_TAG);
         foreach (GameObject game in games)
@@ -112,8 +107,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private IEnumerator DamageRecoveryRoutine()
     {
-        //yield return new WaitForSeconds(damageRecoveryTime);
-        yield return new WaitForSeconds(PlayerController.Instance.playerStats.invincibleTime);
+        yield return new WaitForSeconds(damageRecoveryTime);
         canTakeDamage = true;
     }
 

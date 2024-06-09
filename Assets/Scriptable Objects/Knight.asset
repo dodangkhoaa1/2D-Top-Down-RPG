@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70363daedc67b2245aca3e63bc9b4a62, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  healthPoint: 3
+  damage: 3
+  moveSpeed: 4
+  knockbackForce: 10
+  knockbackTime: 0.1
+  invincibleTime: 0
+  characterLevel: 1
+  characterMaxLevel: 100
+  characterXp: 0
+  characterLevelUpXpRequired: 10
+  characterLevelUpXpRequiredUp: 200
+  characterHpUp: 1
+  weaponCooldown: 1.2
+  weaponDamage: 2
+  weaponRange: 8
+  weaponLevel: 1
+  weaponMaxLevel: 100
+  weaponCooldownUp: 1
+  weaponRangeUp: 1
+  priceToUpgrade: 2
+  nextPriceToUpgrade: 2
+  minWeaponCooldown: 0.1

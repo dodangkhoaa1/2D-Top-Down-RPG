@@ -118,6 +118,6 @@ public class EnemyAI : MonoBehaviour
     {
         timeRoaming = 0f;
         return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized; //random Vector to move of enemy TEST
-        //return PlayerController.Instance.gameObject.transform.position - transform.position;
+        //return PlayerController.Instance.transform.position - transform.position;
     }
 }

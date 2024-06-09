@@ -4,12 +4,12 @@ using UnityEngine;
 public class ActorStats : Stats
 {
     [Header("Base Stats:")]
-    public float healthPoint;
-    public float damage;
-    public float moveSpeed;
-    public float knockbackForce;
-    public float knockbackTime;
-    public float invincibleTime;
+    public float healthPoint = 3f; //max health
+    public float damage = 1f;
+    public float moveSpeed = 4f;
+    public float knockbackForce = 15f;
+    public float knockbackTime = 0.2f;
+    public float invincibleTime = 1f;
 
     public override bool IsCharacterMaxLevel()
     {
