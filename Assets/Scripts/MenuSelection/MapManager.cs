@@ -148,12 +148,15 @@ public class MapManager : MonoBehaviour
             }
             else
             {
+                DialogSelectManager.Instance.ShowAlertCharterSelection();
                 Debug.Log("Character is locked. Please unlock character to continue!");
             }
         }
         else
         {
+            DialogSelectManager.Instance.ShowAlertMapSelection();
             Debug.Log("Map is locked. Please unlock map to continue!");
         }
     }
+  
 }

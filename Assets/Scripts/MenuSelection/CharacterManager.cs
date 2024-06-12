@@ -120,4 +120,6 @@ public class CharacterManager : MonoBehaviour
             Debug.LogError("Character is null. Check if characterDatabase.GetCharacter(characterOption) returns a valid character.");
         }
     }
+
+  
 }
