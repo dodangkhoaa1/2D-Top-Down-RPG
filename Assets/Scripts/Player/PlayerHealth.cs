@@ -23,8 +23,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string HEALTH_SLIDER_TEXT = "Health Slider";
 
     //support for death of player
-    //const string TOWN_TEXT = "CharacterSelectScene";
-    const string TOWN_TEXT = "SelectionMenu";
 
     protected override void Awake()
     {
@@ -102,7 +100,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             Destroy(game.gameObject);
         }
-        SceneManager.LoadScene(TOWN_TEXT);
+        SceneManager.LoadScene(SceneNameConsts.SELECTION_MENU);
     }
 
     private IEnumerator DamageRecoveryRoutine()

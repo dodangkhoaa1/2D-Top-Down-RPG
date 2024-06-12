@@ -21,21 +21,22 @@ public class EnemyPathfinding : MonoBehaviour
     private void FixedUpdate()
     {
         if (knockback.GettingKnockedBack) return; //stop moving of enemy after get knock
+        if(rb.bodyType.ToString() != "Static")
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.deltaTime));
 
         if (moveDir.x < 0)
         {
-            spriteRenderer.flipX = true;
+            FaceToLeft();
         }
         else if (moveDir.x > 0)
         {
-            spriteRenderer.flipX= false;
+            FaceToRight();
         }
     }
 
-    public void MoveTo(Vector2 targetPosition)
+    public void MoveTo(Vector2 targetDirection)
     {
-        moveDir = targetPosition;
+        moveDir = targetDirection;
     }
 
     public void StopMoving()
@@ -43,4 +44,13 @@ public class EnemyPathfinding : MonoBehaviour
         moveDir = Vector3.zero;
     }
 
+    private void FaceToLeft()
+    {
+        spriteRenderer.flipX = true;
+    }
+
+    private void FaceToRight()
+    {
+        spriteRenderer.flipX = false;
+    }
 }

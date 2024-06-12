@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private float roamChangeDirectionFloat = 2f; //time to change move's direction
+    [SerializeField] private float changeDirectionCD = 2f; //time to change move's direction
     [SerializeField] private float attackRange = 0f;
     [SerializeField] private MonoBehaviour enemyType;
     [SerializeField] private float attackCooldown = 2f;
@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
             state = State.Attacking;
         }
 
-        if(timeRoaming > roamChangeDirectionFloat)
+        if(timeRoaming > changeDirectionCD)
             //change direction when time roaming more than time to change direction
         {
             roamPosition = GetRoamingPosition();
@@ -86,15 +86,6 @@ public class EnemyAI : MonoBehaviour
         {
             canAttack = false;
             (enemyType as IEnemy).Attack();
-
-            if(stopMovingWhileAttacking)
-            {
-                enemyPathfinding.StopMoving();
-            }
-            else
-            {
-                enemyPathfinding.MoveTo(roamPosition);
-            }
 
             StartCoroutine(AttackCooldownRoutine()); //delay for the next attack
         }

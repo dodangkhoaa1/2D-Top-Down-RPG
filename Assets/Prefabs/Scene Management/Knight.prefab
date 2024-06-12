@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 8677284735322870089}
   m_Layer: 0
   m_Name: Knight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,11 +374,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5266348, y: 1.7751031}
-      - {x: 0.94541353, y: 0.5823074}
-      - {x: -0.050685585, y: -0.86527824}
-      - {x: 1.7519263, y: -0.7203828}
-      - {x: 1.9455657, y: 1.1758262}
+    - - {x: 1.2168183, y: 1.7873749}
+      - {x: 0.16036475, y: 2.3332286}
+      - {x: 0.33496374, y: 0.6171903}
+      - {x: 0.1760531, y: -1.2315483}
+      - {x: 0.5629382, y: -1.4473166}
+      - {x: 1.3856562, y: -0.89479697}
+      - {x: 2.051632, y: 0.36755273}
+      - {x: 1.9106827, y: 0.98397064}
   m_UseDelaunayMesh: 0
 --- !u!114 &7768766606031834791
 MonoBehaviour:
@@ -419,7 +422,7 @@ Transform:
   m_GameObject: {fileID: 6647581260214523157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014, y: -0.558, z: 0}
+  m_LocalPosition: {x: -0.024, y: -0.242, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

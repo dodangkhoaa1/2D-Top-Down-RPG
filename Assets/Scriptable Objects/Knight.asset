@@ -17,7 +17,7 @@ MonoBehaviour:
   moveSpeed: 4
   knockbackForce: 10
   knockbackTime: 0.1
-  invincibleTime: 0
+  invincibleTime: 10
   characterLevel: 1
   characterMaxLevel: 100
   characterXp: 0

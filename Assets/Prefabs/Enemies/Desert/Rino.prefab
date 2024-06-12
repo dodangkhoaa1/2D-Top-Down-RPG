@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6542411788363032508}
   - component: {fileID: 2984309258368168558}
   - component: {fileID: 8952162804549937567}
+  - component: {fileID: 4495145592522960687}
   m_Layer: 0
   m_Name: Rino
   m_TagString: Untagged
@@ -167,10 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5b9da5b3e637646b2e20f9f4f2c786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roamChangeDirectionFloat: 2
-  attackRange: 0
-  enemyType: {fileID: 0}
-  attackCooldown: 1
+  changeDirectionCD: 2
+  attackRange: 5
+  enemyType: {fileID: 4495145592522960687}
+  attackCooldown: 3
   stopMovingWhileAttacking: 0
 --- !u!114 &443325361698712310
 MonoBehaviour:
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e328ade65f3a04f84564a4932cd1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 2
 --- !u!95 &6012526213250863756
 Animator:
   serializedVersion: 5
@@ -219,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  deathVFXPrefab: {fileID: 7348228272626267880, guid: e252d5c8909a6fa439f2dbb363961d31, type: 3}
+  deathVFXPrefab: {fileID: 7348228272626267880, guid: d071d055ff5ff7c49ba8ad013352ed5f, type: 3}
   knockBackThrust: 15
 --- !u!114 &6542411788363032508
 MonoBehaviour:
@@ -263,3 +264,18 @@ MonoBehaviour:
   goinCoin: {fileID: 310540319523228876, guid: bfff2de6bd1125a4982490cd901e9a3c, type: 3}
   healthGlobe: {fileID: 310540319523228876, guid: b032558124d55d24a8c2562575dcb087, type: 3}
   staminaGlobe: {fileID: 310540319523228876, guid: 03edfca80e663b24bb8f648fec4eaff4, type: 3}
+--- !u!114 &4495145592522960687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188645830153614505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72675c6a0ad5da4f9345403fae66362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retreatDistance: 2
+  retreatSpeed: 2
+  retreatDuration: 1

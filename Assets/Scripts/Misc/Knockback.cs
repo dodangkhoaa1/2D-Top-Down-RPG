@@ -27,7 +27,10 @@ public class Knockback : MonoBehaviour
     {
         //yield return new WaitForSeconds(knockBackTime);
         yield return new WaitForSeconds(PlayerController.Instance.playerStats.knockbackTime);
-        rb.velocity = Vector2.zero;
+        if (!rb.bodyType.ToString().Equals("Static")) //the "Plant" enemy has rigidbody type static
+        {
+            rb.velocity = Vector2.zero;
+        }
         GettingKnockedBack = false;
     }
 }

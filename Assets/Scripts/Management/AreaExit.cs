@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,6 +34,15 @@ public class AreaExit : MonoBehaviour
         {
             waitToLoadTime -= Time.deltaTime;
             yield return null;
+        }
+        if (sceneToLoad.Equals(SceneNameConsts.SELECTION_MENU))
+        {
+            List<GameObject> gameObjects = GameObject.FindGameObjectsWithTag(TagConsts.UIPLAYING_TAG).ToList();
+            gameObjects.Add(GameObject.FindWithTag("Player"));
+            foreach (var item in gameObjects)
+            {
+                Destroy(item.gameObject);
+            }
         }
         SceneManager.LoadScene(sceneToLoad);
 

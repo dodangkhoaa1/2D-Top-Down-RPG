@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6637589154959077159}
   - component: {fileID: 7920116260250336251}
+  - component: {fileID: 3430312067312038282}
   m_Layer: 0
   m_Name: Managers
   m_TagString: UIPlaying
@@ -92,6 +93,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb19e8d1ca06804983521aad890066c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3430312067312038282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618811517761747441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6529f0aabaaa64c91057b2d0a239c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countEnemies: {fileID: 0}
 --- !u!1 &1727484902317268661
 GameObject:
   m_ObjectHideFlags: 0
